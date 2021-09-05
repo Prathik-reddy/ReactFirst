@@ -22,6 +22,15 @@ export default function TextForm(props) {
         // console.log("On change");
         setText(event.target.value)
     }
+    const handleCopyClick = ()=>{
+        var text = document.getElementById('myBox');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+    const handleExtraSpcClick = ()=>{
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(' '));
+    }
 
     const [text, setText] = useState('');
     // text = "new text"; // Wrong way to change the state
@@ -36,6 +45,8 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
             <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
             <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
+            <button className="btn btn-primary mx-1" onClick={handleCopyClick}>Copy Text</button>
+            <button className="btn btn-primary mx-1" onClick={handleExtraSpcClick}>Remove Extra Spc</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
