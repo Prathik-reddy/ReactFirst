@@ -1,15 +1,15 @@
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import Textform from './components/Textform';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
 
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   const [Mode,setMode]=useState("light"); //whether dark mode is enabled or not
@@ -40,25 +40,25 @@ function App() {
   }
   return(
     <>
-    {/* <Router> */}
+    <Router>
     <Navbar title="TextUtils" About="AboutUs" mode={Mode} toggleMode={toggleMode}/>
     {/* <Navbar /> */}
     <Alert alert={alert}/>
     <div className="container my-3">
-    {/* <Switch>
-          <Route exact path="/about"> */}
+    <Switch>
+          <Route exact path="/about">
             {/* exact path matches the exact path . Not mentioning the exact keyword may cause the react app to partially match the components .
             Eg /user --> component1
             /user/home --> component2 .
             Here the react app may render the other component if exact keyword is not mentioned*/}
-            {/* <About />
+            <About mode={Mode}/>
           </Route>
-          <Route exact path="/"> */}
+          <Route exact path="/">
             <Textform showAlert={showAlert} heading="Enter the text to analyze below"  mode={Mode}/>
-          {/* </Route>
-    </Switch> */}
+          </Route>
+    </Switch>
     </div>
-    {/* </Router> */}
+    </Router>
     </>
   );
 }
