@@ -42,7 +42,6 @@ function App() {
     <>
     <Router>
     <Navbar title="TextUtils" About="AboutUs" mode={Mode} toggleMode={toggleMode}/>
-    {/* <Navbar /> */}
     <Alert alert={alert}/>
     <div className="container my-3">
     <Switch>
@@ -64,6 +63,3 @@ function App() {
 }
 
 export default App;
-
-// https://prathik-reddy.github.io/DemoRepo/
-// https://prathik-reddy.github.io/ReactFirst/
